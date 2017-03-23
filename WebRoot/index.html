@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>畅音阁</title>
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+		<script type="text/javascript" src="js/jquery.cookie.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="js/ware.js"></script>
+	</head>
+
+	<body>
+		<div class="topBackGround">
+			<div class="navbar">
+				<div class="innerNavbar">
+					<a class="homePage" href="index.html">首页</a>
+					<a class="user"></a>
+				</div>
+				<img class="music" src="img/headPhone.svg">
+				<input type="text" class="searchKeyWords">
+				<div class="onInput">
+					<img class="mirror" src="img/mirror.svg">
+				</div>
+				<div class="buttons">
+					<div class="buttonSearch">搜索</div>
+				</div>
+				<div class="triangleW"></div>
+			</div>
+		</div>
+		<div class="error" id="error" style='display:none;'>
+			<img src="img/404.png" alt="404">
+		</div>
+		<div class="searchResult" style='display:none;'>
+			<div class="songData">
+				<div class="dPlayIt">
+					<img class="play vivi" src="img/play.svg" alt="播放">
+				</div>
+				<div class="dSongImg">
+					<img class="put songImg" src="" alt="歌曲图片">
+				</div>
+				<div class="dSongName">
+					<p class="put songName"></p>
+				</div>
+				<div class="dArtistName">
+					<p class="put artistName"></p>
+				</div>
+				<div class="dAlbumName">
+					<p class="albumName"></p>
+				</div>
+				<div class="dHouse">
+					<img class="house" src="img/heartYellow.svg" alt="收藏">
+				</div>
+				<div class="dDownLoad">
+					<a class="put downLoad" href="">下载</a>
+				</div>
+				<div class="lyricTitle">
+					歌词
+				</div>
+				<div class="lyric">
+
+				</div>
+			</div>
+			<div class="commentFrame">
+				<h2 id="thecomment">评论</h2>
+				<textarea class="doComment"></textarea>
+				<input type="button" class="commentSubmit" value="评论">
+			</div>
+		</div>
+		<div class="middle">
+			<div class="leftContent">
+				<div class="recommendSong">
+					<div class="title">
+						<img class="fireImg" src="img/fire.svg" alt="热门推荐">
+						<p>热门推荐</p>
+					</div>
+					<div class="songFrame" id="heatSong">
+						<div class="songFrameTitle">
+							<p class="titlePlay">播放</p>
+							<p class="titleSongImg">歌曲图片</p>
+							<p class="titleSongName">歌曲</p>
+							<p class="titleArtistName">歌手</p>
+							<p class="titleAlbumName">专辑</p>
+							<p class="titleHouse">收藏</p>
+							<p class="titleDownLoad"></p>
+						</div>
+					</div>
+				</div>
+				<div class="recommendSong">
+					<div class="title">
+						<img class="fireImg" src="img/songLogo.svg" alt="新歌上市">
+						<p>新歌上市</p>
+					</div>
+					<div class="songFrame" id="newSong">
+						<div class="songFrameTitle">
+							<p class="titlePlay">播放</p>
+							<p class="titleSongImg">歌曲图片</p>
+							<p class="titleSongName">歌曲</p>
+							<p class="titleArtistName">歌手</p>
+							<p class="titleAlbumName">专辑</p>
+							<p class="titleHouse">收藏</p>
+							<p class="titleDownLoad"></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="rightContent">
+				<div class="myHouse">
+					<div class="title">
+						<img src="img/house.svg" alt="收藏">
+						<p>我的收藏</p>
+					</div>
+					<div class="housedSongName" id="myCollection">
+						
+					</div>
+				</div>
+				<div class="myHouse myComments">
+					<div class="title">
+						<img src="img/commentsLogo.svg" alt="歌曲评论">
+						<p>歌曲评论</p>
+					</div>
+					<div class="housedSongName commentSongName" id="myCommented">
+					
+					</div>
+				</div>
+				<div class="myHouse myDownLoad">
+					<div class="title">
+						<img src="img/downLoadLogo.svg" alt="我的下载">
+						<p>我的下载</p>
+					</div>
+					<div class="housedSongName downLoadSongName" id="myDownload">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bArea">
+			<div class="triangleB"></div>
+		</div>
+		<div class="bottomBackGround">
+			<div class="bottom">
+				<img class="tool" src="img/tool.svg">
+				<p class="otherHref">友情链接</p>
+				<a href="http://www.stuzone.com/" class="studentArea">学生地带</a>
+				<hr>
+				<p class="copyright">©实习第三组</p>
+			</div>
+			<div class="potPlayer">
+				<div class="playerContent">
+					<div class="sImg">
+						<img class="get songImg" src="" alt="歌曲图片">
+					</div>
+					<div class="sName">
+						<p class="get songName">新的心跳</p>
+					</div>
+					<div class="aName">
+						<p class="get artistName">邓紫棋</p>
+					</div>
+					<div class="sDownLoad">
+						<a class="downLoad" href="http://m5.file.xiami.com/712/55712/24075643/1774486016_59316326_l.mp3?auth_key=671519c2411394f95bd959aa94a0b8bf-1469232000-0-null">下载</a>
+					</div>
+					<div class="sHouse">
+						<img class="house" src="img/heartWhite.svg" alt="收藏">
+					</div>
+					<div class="dPrevious">
+						<img src="img/previous.svg" alt="上一首">
+					</div>
+					<div class="dPlayPause">
+						<img src="img/playWhite.svg" alt="播放">
+					</div>
+					<div class="dNext">
+						<img src="img/next.svg" alt="下一首">
+					</div>
+					<div class="songProcessOut">
+						<div class="songProcessInner"></div>
+					</div>
+					<audio src="" style="display: none"></audio>
+					<div class="lyric">
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<audio src=""></audio>
+
+		<div id="templete" style="display: none;">
+			<div class="songData" value=theid>
+				<div class="dPlay">
+					<img class="play" src="img/play.svg" alt="播放">
+				</div>
+				<div class="dSongImg">
+					<img class="songImg" src="albumimgadr" alt="歌曲图片">
+				</div>
+				<div class="dSongName">
+					<p class="songName">songtitle</p>
+				</div>
+				<div class="dArtistName">
+					<p class="artistName">singer</p>
+				</div>
+				<div class="dAlbumName">
+					<p class="albumName">album</p>
+				</div>
+				<div class="dHouse">
+					<img class="house" src="img/heartYellow.svg" alt="收藏">
+				</div>
+				<div class="dDownLoad">
+					<a class="downLoad" href=songaddress>下载</a>
+				</div>
+			</div>
+		</div>
+
+		<div id="templete2" style="display: none;">
+			<div class="searched" value=musicId>
+				<a>songtitle</a>
+				<p>singer</p>
+			</div>
+		</div>
+		
+		
+		<div id="templete3" style="display: none;">
+			<div class="commented">
+				<div class="theirName">
+					theuser
+				</div>
+				<div class="commentData">
+					thecomment
+				</div>
+			</div>
+		</div>
+		
+	</body>
+
+</html>

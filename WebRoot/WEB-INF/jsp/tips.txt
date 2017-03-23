@@ -1,0 +1,48 @@
+业务:service---配置service:applicationContext-dao.xml
+<bean id="userService" class="cn.edu.scuec.ssm.service.impl.UserServiceImpl"/>
+必须将token,username存到cookie中,在登录成功的时候;
+
+<script src="<%=request.getContextPath()%>/js/manager.js"></script>
+
+login.hml--- 登录失败:{code:401},重定向到index.html(登录界面)
+	     成功---{code:200}----在服务器中用session保存状态
+	     
+@RequestMapping("/login")	     
+@RequestMapping("/register")
+@RequestMapping("/logout")
+
+@RequestMapping("/selectSongList")
+@RequestMapping("/selectASong")	// todo 刘斌
+@RequestMapping("/doComment")
+@RequestMapping("/getComment")
+@RequestMapping("/collectASong")
+@RequestMapping("/deleteAcollection")
+@RequestMapping("/inserttogarage")
+
+@RequestMapping("/downloadASong")	// 下载歌曲,问题:如果是第三方的就要重写了
+
+
+new DateTime(new Date()).toDateTimeString()	// 2016-07-22 10:39:30
+
+
+
+
+注意:拦截逻辑重写
+注意:验证貌似没有发挥作用
+
+springmvc.xml
+		<!--拦截器 -->
+<mvc:interceptors>
+	<!--如果有多个拦截器,顺序执行 -->
+	<!-- 登陆认证拦截器 -->
+	<mvc:interceptor>
+		<mvc:mapping path="/**"/>
+		<bean class="cn.edu.scuec.ssm.interceptor.LoginInterceptor"></bean>
+	</mvc:interceptor>
+	<mvc:interceptor>
+		<mvc:mapping path="/**"/>
+		<bean class="cn.edu.scuec.ssm.interceptor.SinglenInterceptor"></bean>
+	</mvc:interceptor>
+</mvc:interceptors>
+	
+	

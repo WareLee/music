@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.scuec.ssm.mapper.MusicgarageMapper" >
+  <resultMap id="BaseResultMap" type="cn.edu.scuec.ssm.po.Musicgarage" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="songtitle" property="songtitle" jdbcType="VARCHAR" />
+    <result column="singer" property="singer" jdbcType="VARCHAR" />
+    <result column="album" property="album" jdbcType="VARCHAR" />
+    <result column="songaddress" property="songaddress" jdbcType="VARCHAR" />
+    <result column="capacity" property="capacity" jdbcType="INTEGER" />
+    <result column="playtime" property="playtime" jdbcType="INTEGER" />
+    <result column="albumimgadr" property="albumimgadr" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="cn.edu.scuec.ssm.po.Musicgarage" extends="BaseResultMap" >
+    <result column="lyric" property="lyric" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, songtitle, singer, album, songaddress, capacity, playtime, albumimgadr
+  </sql>
+  <sql id="Blob_Column_List" >
+    lyric
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="cn.edu.scuec.ssm.po.MusicgarageExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from musicgarage
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.scuec.ssm.po.MusicgarageExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from musicgarage
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from musicgarage
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from musicgarage
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.edu.scuec.ssm.po.MusicgarageExample" >
+    delete from musicgarage
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.edu.scuec.ssm.po.Musicgarage" >
+    insert into musicgarage (id, songtitle, singer, 
+      album, songaddress, capacity, 
+      playtime, albumimgadr, lyric
+      )
+    values (#{id,jdbcType=INTEGER}, #{songtitle,jdbcType=VARCHAR}, #{singer,jdbcType=VARCHAR}, 
+      #{album,jdbcType=VARCHAR}, #{songaddress,jdbcType=VARCHAR}, #{capacity,jdbcType=INTEGER}, 
+      #{playtime,jdbcType=INTEGER}, #{albumimgadr,jdbcType=VARCHAR}, #{lyric,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.scuec.ssm.po.Musicgarage" >
+    insert into musicgarage
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="songtitle != null" >
+        songtitle,
+      </if>
+      <if test="singer != null" >
+        singer,
+      </if>
+      <if test="album != null" >
+        album,
+      </if>
+      <if test="songaddress != null" >
+        songaddress,
+      </if>
+      <if test="capacity != null" >
+        capacity,
+      </if>
+      <if test="playtime != null" >
+        playtime,
+      </if>
+      <if test="albumimgadr != null" >
+        albumimgadr,
+      </if>
+      <if test="lyric != null" >
+        lyric,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="songtitle != null" >
+        #{songtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="singer != null" >
+        #{singer,jdbcType=VARCHAR},
+      </if>
+      <if test="album != null" >
+        #{album,jdbcType=VARCHAR},
+      </if>
+      <if test="songaddress != null" >
+        #{songaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null" >
+        #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="playtime != null" >
+        #{playtime,jdbcType=INTEGER},
+      </if>
+      <if test="albumimgadr != null" >
+        #{albumimgadr,jdbcType=VARCHAR},
+      </if>
+      <if test="lyric != null" >
+        #{lyric,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.edu.scuec.ssm.po.MusicgarageExample" resultType="java.lang.Integer" >
+    select count(*) from musicgarage
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update musicgarage
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.songtitle != null" >
+        songtitle = #{record.songtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.singer != null" >
+        singer = #{record.singer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.album != null" >
+        album = #{record.album,jdbcType=VARCHAR},
+      </if>
+      <if test="record.songaddress != null" >
+        songaddress = #{record.songaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.capacity != null" >
+        capacity = #{record.capacity,jdbcType=INTEGER},
+      </if>
+      <if test="record.playtime != null" >
+        playtime = #{record.playtime,jdbcType=INTEGER},
+      </if>
+      <if test="record.albumimgadr != null" >
+        albumimgadr = #{record.albumimgadr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lyric != null" >
+        lyric = #{record.lyric,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update musicgarage
+    set id = #{record.id,jdbcType=INTEGER},
+      songtitle = #{record.songtitle,jdbcType=VARCHAR},
+      singer = #{record.singer,jdbcType=VARCHAR},
+      album = #{record.album,jdbcType=VARCHAR},
+      songaddress = #{record.songaddress,jdbcType=VARCHAR},
+      capacity = #{record.capacity,jdbcType=INTEGER},
+      playtime = #{record.playtime,jdbcType=INTEGER},
+      albumimgadr = #{record.albumimgadr,jdbcType=VARCHAR},
+      lyric = #{record.lyric,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update musicgarage
+    set id = #{record.id,jdbcType=INTEGER},
+      songtitle = #{record.songtitle,jdbcType=VARCHAR},
+      singer = #{record.singer,jdbcType=VARCHAR},
+      album = #{record.album,jdbcType=VARCHAR},
+      songaddress = #{record.songaddress,jdbcType=VARCHAR},
+      capacity = #{record.capacity,jdbcType=INTEGER},
+      playtime = #{record.playtime,jdbcType=INTEGER},
+      albumimgadr = #{record.albumimgadr,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.scuec.ssm.po.Musicgarage" >
+    update musicgarage
+    <set >
+      <if test="songtitle != null" >
+        songtitle = #{songtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="singer != null" >
+        singer = #{singer,jdbcType=VARCHAR},
+      </if>
+      <if test="album != null" >
+        album = #{album,jdbcType=VARCHAR},
+      </if>
+      <if test="songaddress != null" >
+        songaddress = #{songaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null" >
+        capacity = #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="playtime != null" >
+        playtime = #{playtime,jdbcType=INTEGER},
+      </if>
+      <if test="albumimgadr != null" >
+        albumimgadr = #{albumimgadr,jdbcType=VARCHAR},
+      </if>
+      <if test="lyric != null" >
+        lyric = #{lyric,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="cn.edu.scuec.ssm.po.Musicgarage" >
+    update musicgarage
+    set songtitle = #{songtitle,jdbcType=VARCHAR},
+      singer = #{singer,jdbcType=VARCHAR},
+      album = #{album,jdbcType=VARCHAR},
+      songaddress = #{songaddress,jdbcType=VARCHAR},
+      capacity = #{capacity,jdbcType=INTEGER},
+      playtime = #{playtime,jdbcType=INTEGER},
+      albumimgadr = #{albumimgadr,jdbcType=VARCHAR},
+      lyric = #{lyric,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.scuec.ssm.po.Musicgarage" >
+    update musicgarage
+    set songtitle = #{songtitle,jdbcType=VARCHAR},
+      singer = #{singer,jdbcType=VARCHAR},
+      album = #{album,jdbcType=VARCHAR},
+      songaddress = #{songaddress,jdbcType=VARCHAR},
+      capacity = #{capacity,jdbcType=INTEGER},
+      playtime = #{playtime,jdbcType=INTEGER},
+      albumimgadr = #{albumimgadr,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

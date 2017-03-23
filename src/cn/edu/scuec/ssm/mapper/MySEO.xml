@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.scuec.ssm.mapper.MySEO">
+
+	<select id="selectCertaionSongSeo" resultType="cn.edu.scuec.ssm.po.CertainSong">
+		SELECT a.*,
+		user.username
+		FROM
+		(SELECT b.*,
+		commentary.article,
+		commentary.user_id,
+		commentary.commenttime
+		FROM (SELECT * FROM musicgarage WHERE
+		id=#{id,jdbcType=INTEGER}) AS b,
+		commentary
+		WHERE
+		b.id=commentary.music_id
+		)AS a,USER
+		WHERE a.user_id=user.id
+	</select>
+	
+	<select id="selectCertaionSongNotFo" resultType="cn.edu.scuec.ssm.po.CertainSong">
+		SELECT * FROM musicgarage WHERE
+		id=#{id,jdbcType=INTEGER}
+	</select>
+
+	<delete id="deleteAcollection">
+		DELETE FROM acollection WHERE
+		music_id=#{musicid}
+	</delete>
+
+	<select id="selectAcollection" parameterType="cn.edu.scuec.ssm.po.Acollection" resultType="cn.edu.scuec.ssm.po.Acollection">
+		SELECT * FROM
+		acollection WHERE music_id=#{musicId} and user_id=#{userId}
+	</select>
+
+	<select id="selectCommentListByMusicId" resultType="cn.edu.scuec.ssm.po.Commentary">
+		SELECT * FROM
+		commentary WHERE music_id = #{musicid}
+	</select>
+
+	<select id="selectCollectionListByUserid" resultType="cn.edu.scuec.ssm.po.Musicgarage">
+		SELECT
+		musicgarage.*
+		FROM (SELECT music_id FROM acollection WHERE
+		user_id=#{userId})AS a,
+		musicgarage
+		WHERE a.music_id=musicgarage.id
+	</select>
+
+	<select id="insertDownloadListByUserid" resultType="cn.edu.scuec.ssm.po.Musicgarage">
+		SELECT
+		musicgarage.*
+		FROM (SELECT music_id FROM download WHERE
+		user_id=#{userId})AS a,
+		musicgarage
+		WHERE a.music_id=musicgarage.id
+	</select>
+
+	<select id="searchSong" parameterType="String"
+		resultType="cn.edu.scuec.ssm.po.Musicgarage">
+		SELECT * FROM musicgarage WHERE
+		songtitle LIKE
+		'%${_parameter}%'
+	</select>
+
+	<select id="selectDownloadListByUserid" resultType="cn.edu.scuec.ssm.po.Musicgarage">
+		SELECT
+		musicgarage.*
+		FROM (SELECT music_id FROM download WHERE
+		user_id=#{userId})AS a,
+		musicgarage
+		WHERE a.music_id=musicgarage.id
+	</select>
+	
+	<select id="selectCommentedSongListByUserid" resultType="cn.edu.scuec.ssm.po.Musicgarage">
+		SELECT
+		musicgarage.*
+		FROM (SELECT music_id FROM commentary WHERE
+		user_id=#{userId})AS a,
+		musicgarage
+		WHERE a.music_id=musicgarage.id
+	</select>
+</mapper>
+
+

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<!-- 配置别名 -->
+	<typeAliases>
+		<!-- 批量扫描别名 -->
+		<package name="cn.edu.scuec.ssm.po" />
+	</typeAliases>
+	
+	<!-- mapper扫描器扫描 , 这里不用配置(spring和mybatis整合包进行了mapper扫描)-->
+	
+</configuration>

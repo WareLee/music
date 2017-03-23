@@ -1,0 +1,656 @@
+html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;*font-size:100%}legend{color:#000}#yui3-css-stamp.cssreset{display:none}
+body{
+    width:100%;
+    height:100%;
+}
+.topBackGround{
+    width:100%;
+    height: 500px;
+    background-color: #FFc000;
+}
+.navbar{
+    margin: auto;
+    width: 1024px;
+}
+.innerNavbar{
+    width: 1024px;
+    height: 55px;
+}
+.homePage {
+    font-family: "Microsoft YaHei";
+    font-size: 16px;
+    float: left;
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 55px;
+}
+.user{
+    font-family: "Microsoft YaHei";
+    float: right;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    /*将标签内的元素下拉55个px*/
+    line-height: 55px;
+    padding:0 15px;
+}
+.music{
+    width:200px;
+    height:200px;
+    display: block;
+    color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+}
+.searchKeyWords{
+    color: #333333;
+    height: 50px;
+    font-size: 16px;
+    text-align: center;
+    border:0;
+    outline:#FFc000;
+    display: block;
+    font-family: "Microsoft YaHei";
+    margin:30px auto;
+    width:80%;
+    position: relative;
+}
+.onInput{
+    width:1024px;
+    height:50px;
+    position: absolute;
+    margin-top: -80px;
+    cursor: text;
+}
+.mirror{
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:10px;
+    width:30px;
+    height:30px;
+}
+.buttons{
+    margin:45px auto 0 auto;
+    width: 300px;
+    height:40px;
+}
+.buttonSearch{
+    text-align: center;
+    padding-top: 7px;
+    width:100px;
+    height:33px;
+    background-color: #ffffff;
+    margin:auto;
+    font-family: "Microsoft YaHei";
+    color: #ffc000;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+.buttonSearch:active{
+    transition: all 0.3s ease-out;
+    background-color: #ffC000;
+    color: #FFFFFF;
+}
+/*三角形*/
+.triangleW{
+    bottom:0;
+    margin:50px auto auto;
+    width:0px;
+    height:0px;
+    border-left: 60px solid #FFc000;
+    border-right: 60px solid #FFc000;
+    border-bottom:solid 30px white;
+}
+.error{
+    margin:50px auto 50px auto;
+    width: 1024px;
+}
+.error img{
+    display: block;
+    margin: auto;
+}
+.searchResult{
+    width: 1024px;
+    font-family: "Microsoft YaHei";
+    margin:100px auto 100px auto;
+}
+.searchResult .songData{
+    margin:auto;
+    height: auto;
+    padding:20px;
+}
+.searchResult .lyricTitle{
+    clear: both;
+    text-align: center;
+    padding-top: 40px;
+    font-size: 20px;
+    font-weight: 700;
+}
+.searchResult .lyric{
+    padding-top: 5px;
+    height: 250px;
+}
+.searchResult .lyric::-webkit-scrollbar-thumb {
+    background-color: #ffa000;
+    border-radius: 4px;
+}
+.searchResult .lyric::-webkit-scrollbar-button {
+    background-color: #ffffff;
+}
+.searchResult .lyric::-webkit-scrollbar-track {
+    background-color: #ffffff;
+    border-radius: 4px;
+}
+.commentFrame{
+    width: 664px;
+    margin:20px auto;
+}
+.commented{
+    transition: all 0.3s ease-out;
+    margin-bottom: 15px;
+}
+.commented:hover{
+    box-shadow: 0px 0px 20px 0px #ffC000;
+    transition: all 0.3s ease-out;
+}
+h2{
+    font-size: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px #3d3d3d solid;
+}
+.commented{
+    cursor: default;
+}
+.theirName{
+    color: #999999;
+    font-size: 13px;
+    margin:20px 5px 10px 5px;
+}
+.commentData{
+    margin:20px 5px 10px 5px;
+    color: #3d3d3d;
+    font-size: 14px;
+    padding-bottom: 15px;
+}
+.doComment{
+    margin-top: 20px;
+    width: 642px;
+    height: 50px;
+    resize: none;
+    outline:none;
+    border: 1px #ffc000 solid;
+    padding: 10px 10px 10px 10px;
+    transition: all 0.3s ease-out;
+}
+.doComment:focus{
+    box-shadow: 0px 0px 20px 0px #ffC000;
+    transition: all 0.3s ease-out;
+}
+.commentSubmit{
+    float: right;
+    text-align: center;
+    width:100px;
+    height:33px;
+    background-color: #ffC000;
+    color: #ffffff;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+}
+.commentSubmit:active{
+    background-color: #ffa000;
+    transition: all 0.3s ease-out;
+}
+.middle{
+    width:1024px;
+    margin: 25px auto;
+    font-family: "Microsoft YaHei";
+}
+.leftContent{
+    width: 724px;
+    float: left;
+}
+.recommendSong{
+    margin-bottom: 50px;
+}
+.title{
+    margin-right: 60px;
+    border-top: 25px #ffffff solid;
+    font-size: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px #3d3d3d solid;
+}
+.fireImg{
+    display: block;
+    width: 25px;
+    height: 25px;
+    padding-top: 5px;
+}
+.title p{
+    margin-top: -26px;
+    margin-left: 35px;
+}
+.songFrame{
+    margin-right: 30px;
+    margin-top: 25px;
+}
+.songFrameTitle p{
+    font-size: 16px;
+    display: inline;
+}
+.songFrameTitle .titleSongImg{
+    margin-left: 70px;
+}
+.songFrameTitle .titleSongName{
+    margin-left: 70px;
+}
+.songFrameTitle .titleArtistName{
+    margin-left: 70px;
+}
+.songFrameTitle .titleAlbumName{
+    margin-left: 70px;
+}
+.songFrame .titleHouse{
+    margin-left: 70px;
+}
+.songData{
+    height: 50px;
+    width: 664px;
+    margin-top: 20px;
+    transition: all 0.3s ease-out;
+}
+.songData:hover{
+    box-shadow: 0px 0px 20px 0px #ffC000;
+    transition: all 0.3s ease-out;
+}
+.songData p{
+    font-size: 12px;
+    color: #3d3d3d;
+    margin-top: 18px;
+}
+.dPlay{
+    width: 107px;
+    float: left;
+}
+.dSongImg{
+    width: 139px;
+    float: left;
+}
+.dSongName{
+    width: 107px;
+    float: left;
+}
+.dArtistName{
+    width:106px;
+    float: left;
+}
+.dAlbumName{
+    width:105px;
+    float: left;
+}
+.dHouse{
+    width:74px;
+    float: left;
+}
+.dDownLoad{
+    float: left;
+}
+.songData .play{
+    margin-top: 9px;
+}
+.songData .songImg{
+    width: 40px;
+    height:40px;
+    margin-top: 5px;
+}
+.songData .house{
+    width: 24px;
+    height:24px;
+    margin-top: 13px;
+}
+.songData .downLoad{
+    text-decoration: none;
+    color: #3d3d3d;
+    margin-top: 18px;
+    font-size: 12px;
+    display: block;
+}
+.rightContent{
+    width:300px;
+    float: right;
+}
+.myHouse{
+    margin-left: 60px;
+    margin-bottom: 50px;
+}
+.myHouse img{
+    width:25px;
+    height:25px;
+    padding-top: 5px;
+    display: block;
+}
+.myHouse .title{
+    margin-right: 0px;
+}
+.housedSongName{
+    width: 240px;
+}
+.housedSongName div{
+    margin-top: 20px;
+    width: 240px;
+    height: 30px;
+    padding-top: 8px;
+    transition: all 0.3s ease-out;
+}
+.housedSongName div:hover{
+    box-shadow: 0px 0px 20px 0px #ffC000;
+    transition: all 0.3s ease-out;
+}
+.housedSongName div a{
+    text-decoration: none;
+    color: #3d3d3d;
+    font-size: 16px;
+    padding-right: 75px;
+    display: inline-block;
+}
+.housedSongName div p{
+    display: inline-block;
+    font-size: 12px;
+}
+.myDownLoad{
+    margin-bottom: 50px;
+}
+.bArea{
+    width: 1024px;
+    margin: auto;
+    clear: both;
+}
+.triangleB{
+    margin: auto;
+    width:0px;
+    height:0px;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-bottom:solid 30px #3d3d3d;
+}
+.bottomBackGround{
+    width: 100%;
+    height: 320px;
+    background-color: #3d3d3d;
+}
+.bottom{
+    margin: auto;
+    height: 270px;
+    width: 1024px;
+}
+.tool{
+    width:34px;
+    height: 37px;
+    display: block;
+    margin: auto;
+    padding: 30px;
+}
+.otherHref{
+    font-size: 14px;
+    font-family: "Microsoft YaHei";
+    color: #ffffff;
+    padding-bottom: 30px;
+}
+.studentArea{
+    font-family: "Microsoft YaHei UI Light";
+    font-size: 12px;
+    color: #ffffff;
+    text-decoration: none;
+}
+hr{
+    clear: both;
+    width: 1024px;
+    opacity: 0.08;
+    border-top:1px;
+    margin:35px 0;
+}
+.copyright{
+    color: #ffffff;
+    font-size: 12px;
+    font-family: "Microsoft YaHei UI Light";
+    text-decoration: none;
+    text-align: center;
+}
+.grayBackground{
+    width: 100%;
+    background:#000;
+    opacity: 0.3;
+    left: 0;
+    top:0;
+    height: 100%;
+    position: fixed;
+}
+.centerArea{
+    width: 600px;
+    height:400px;
+    top:50%;
+    left: 50%;
+    margin-left: -300px;
+    margin-top: -200px;
+    position: fixed;
+    background-color: #ffffff;
+    text-align: center;
+    -webkit-box-shadow:  0px 0px 10px 0.1px #6c6c6c;
+    -moz-box-shadow:  0px 0px 10px 0.1px #6c6c6c;
+    box-shadow:  0px 0px 10px 0.1px #6c6c6c;
+    -o-box-shadow:0px 0px 10px 0.1px #6c6c6c;
+    font-size: 24px;
+    font-family: "Microsoft YaHei";
+    color: #6c6c6c;
+}
+.loginGuwenLogoFrame{
+    width: 300px;
+    height:150px;
+    border-bottom: 1px #d7d7d7 solid;
+    margin: auto;
+}
+.loginGuwenLogo{
+    width:125px ;
+    height:125px;
+    margin-top: 11px;
+}
+.loginSystemTitle{
+    font-size: 16px;
+    font-family: "Microsoft YaHei";
+    width: 250px;
+    height:25px;
+    margin-top: -13px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    background-color: #ffffff;
+}
+.formLogin{
+    width: 250px;
+    height: 180px;
+    margin: auto;
+}
+.input{
+    border: 1px solid #d7d7d7;
+    font-size: 14px;
+    width: 208px;
+    height: 34px;
+    padding:2px 20px;
+    margin-top: 25px;
+}
+.mailLogo{
+    width: 20px;
+    height:20px;
+    margin:-28px auto 0 auto;
+    display: block;
+    cursor: text;
+}
+.passwordLogo{
+    width: 20px;
+    height:20px;
+    margin:-28px auto 0 auto;
+    display: block;
+    cursor: text;
+}
+.input:focus{
+    border-color: #ffffff;
+    outline-color: #ffC000;
+}
+.loginSubmit{
+    width: 250px;
+    height: 40px;
+    margin-top: 25px;
+    border: 0;
+    background-color: #ffC000;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 16px;
+    font-family: "Microsoft YaHei";
+}
+.loginSubmit:active{
+    background-color: #ffd000;
+    transition: all 0.3s ease-out;
+}
+.loginSubmit:focus{
+    outline:none;
+}
+.changeToRegister{
+    font-size: 14px;
+    font-family: "Microsoft YaHei";
+    float: right;
+    margin-right: 25px;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #ffC000;
+}
+.potPlayer{
+    position: fixed;
+    width:1024px;
+    margin-left: -512px;
+    left: 50%;
+    height: 60px;
+    bottom: 0;
+    background-color: #ffc000;
+    opacity: 0.4;
+    transition: all .3s ease-out;
+    color: #ffffff;
+    font-family: "Microsoft YaHei";
+}
+.potPlayer:hover{
+    height: 320px;
+    opacity:.9;
+}
+.playerContent{
+    width: 1024px;
+    margin:auto;
+}
+.sImg{
+
+}
+.sImg .songImg{
+    width: 40px;
+    height:40px;
+    margin-top: 10px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 2px 0px #3d3d3d ;
+}
+.sName{
+    margin-left: 65px;
+    margin-top: -50px;
+}
+.sName .songName{
+    font-size: 16px;
+}
+.aName{
+    font-size: 12px;
+    margin-left: 65px;
+    margin-top: 10px;
+}
+.sHouse{
+    float: right;
+}
+.sHouse .house{
+    width: 24px;
+    height:24px;
+    margin-top: -32px;
+    margin-right: 50px;
+    display: block;
+}
+.sDownLoad{
+    float: right;
+    position: relative;
+}
+.sDownLoad .downLoad{
+    font-size: 16px;
+    margin-top: -32px;
+    margin-right: 5px;
+    text-decoration: none;
+    color: #ffffff;
+    display: block;
+}
+.dPrevious{
+    margin-top:-40px;
+    margin-left: 444px;
+    position: absolute;
+}
+.dPrevious img{
+    width: 40px;
+    height: 40px;
+}
+.dPlayPause{
+    margin-top: -44px;
+    margin-left: 488px;
+    position: absolute;
+}
+.dPlayPause img{
+    width: 45px;
+    height: 45px;
+}
+.dNext{
+    margin-top: -42px;
+    margin-left: 540px;
+}
+.dNext img{
+    width: 40px;
+    height: 40px;
+}
+.songProcessOut{
+    width: 370px;
+    height: 4px;
+    background-color: #ffffff;
+    margin:-2px auto 0px auto;
+    cursor: pointer;
+}
+.songProcessInner{
+    width: 0;
+    height: 4px;
+    background-color:#c20c0c;
+}
+.lyric{
+    text-align: center;
+    margin-top: 15px;
+    font-size:14px;
+    height: 250px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.lyric::-webkit-scrollbar {
+    width: 8px;
+}
+.lyric::-webkit-scrollbar-track {
+    background-color: #ffc000;
+    border-radius: 4px;
+}
+.lyric::-webkit-scrollbar-thumb {
+    background-color: #ffa000;
+    border-radius: 4px;
+}
+.lyric::-webkit-scrollbar-button {
+    background-color: #ffC000;
+}
+.lyric::-webkit-scrollbar-corner {
+    background-color: #ffc000;
+}
